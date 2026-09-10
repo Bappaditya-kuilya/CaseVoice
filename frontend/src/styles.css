@@ -53,10 +53,10 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 var(--spacing-md);
   height: 56px;
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-strong);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -65,18 +65,19 @@ a {
 .nav-logo {
   font-size: 18px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary);
   letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(86, 131, 218, 0.4);
 }
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: var(--spacing-md);
 }
 
 .nav-links a {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--on-surface-muted);
   padding: 6px 0;
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
@@ -84,8 +85,8 @@ a {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--text-primary);
-  border-bottom-color: var(--accent);
+  color: var(--on-surface);
+  border-bottom-color: var(--primary);
 }
 
 /* Main */
