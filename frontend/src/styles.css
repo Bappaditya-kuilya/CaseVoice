@@ -99,7 +99,7 @@ a {
 .main-full {
   max-width: none;
   padding: 0;
-  height: calc(100vh - 0px);
+  height: 100vh;
 }
 
 /* Glow utilities */
