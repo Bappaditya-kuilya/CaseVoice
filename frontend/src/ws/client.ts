@@ -23,9 +23,15 @@ export class VoiceClient {
   }
 
   private connect(): void {
-    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const host = window.location.host;
-    this.ws = new WebSocket(`${protocol}//${host}/ws/call`);
+    const wsBase = import.meta.env.VITE_WS_URL;
+    let url: string;
+    if (wsBase) {
+      url = `${wsBase}/ws/call`;
+    } else {
+      const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+      url = `${protocol}//${window.location.host}/ws/call`;
+    }
+    this.ws = new WebSocket(url);
     this.ws.binaryType = "arraybuffer";
 
     this.ws.onopen = () => {
