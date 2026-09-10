@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 
 import database as db
@@ -34,7 +34,7 @@ app.add_middleware(
 
 # ── WebSocket ──────────────────────────────────────────────────────────
 @app.websocket("/ws/call")
-async def ws_call(ws):
+async def ws_call(ws: WebSocket):
     await websocket_endpoint(ws)
 
 

@@ -10,16 +10,11 @@ class CaptureProcessor extends AudioWorkletProcessor {
 
     const channelData = input[0];
 
-    // Downsample from 48kHz to 16kHz (take every 3rd sample)
-    const downsampled = new Float32Array(Math.floor(channelData.length / 3));
-    for (let i = 0; i < downsampled.length; i++) {
-      downsampled[i] = channelData[i * 3];
-    }
-
+    // AudioContext is already at 16kHz, no downsampling needed
     // Convert Float32 [-1, 1] to Int16 PCM
-    const pcm = new Int16Array(downsampled.length);
-    for (let i = 0; i < downsampled.length; i++) {
-      const s = Math.max(-1, Math.min(1, downsampled[i]));
+    const pcm = new Int16Array(channelData.length);
+    for (let i = 0; i < channelData.length; i++) {
+      const s = Math.max(-1, Math.min(1, channelData[i]));
       pcm[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
     }
 

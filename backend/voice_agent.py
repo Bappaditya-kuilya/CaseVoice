@@ -38,13 +38,20 @@ class VoiceAgent:
         if self._speaking:
             return
 
-        self._audio_buffer.extend(pcm_bytes)
-        self._last_voice_time = time.monotonic()
+        # Check if frame has actual audio (non-zero samples)
+        import array
+        samples = array.array("h", pcm_bytes)
+        has_voice = any(abs(s) > 500 for s in samples[:len(samples)//2])
 
-        # Check if silence threshold reached and we have enough audio
-        if len(self._audio_buffer) > 0:
+        if has_voice:
+            self._last_voice_time = time.monotonic()
+
+        self._audio_buffer.extend(pcm_bytes)
+
+        # Process when we have enough audio AND silence detected
+        if len(self._audio_buffer) >= 3200:
             elapsed = time.monotonic() - self._last_voice_time
-            if elapsed >= _SILENCE_THRESHOLD_S and len(self._audio_buffer) >= 3200:
+            if elapsed >= _SILENCE_THRESHOLD_S:
                 await self._process_speech(send_json, send_binary)
 
     async def _process_speech(self, send_json, send_binary) -> None:
