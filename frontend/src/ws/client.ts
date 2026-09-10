@@ -28,7 +28,7 @@ export class VoiceClient {
     if (wsBase) {
       url = `${wsBase}/ws/call`;
     } else if (window.location.hostname.endsWith(".vercel.app")) {
-      url = `wss://towards-sauce-degree-chemical.trycloudflare.com/ws/call`;
+      url = `wss://had-travelling-honey-diary.trycloudflare.com/ws/call`;
     } else {
       const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
       url = `${protocol}//${window.location.host}/ws/call`;
