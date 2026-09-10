@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: casevoice-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: RIME_API_KEY
+        sync: false
+      - key: DATABASE_PATH
+        value: /data/casevoice.db
+    disk:
+      mountPath: /data
+      sizeGB: 1
