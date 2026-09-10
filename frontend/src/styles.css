@@ -278,12 +278,13 @@ a {
   border-radius: var(--radius);
   padding: var(--spacing-sm);
   cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 
 .call-card:hover {
   border-color: var(--primary);
   box-shadow: 0 0 20px rgba(86, 131, 218, 0.15);
+  transform: translateY(-1px);
 }
 
 .call-card-header {
