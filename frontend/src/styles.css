@@ -542,37 +542,37 @@ a {
 
 /* Case detail */
 .case-detail {
-  padding-bottom: 48px;
+  padding-bottom: var(--spacing-lg);
 }
 
 .case-detail .btn-ghost {
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-md);
 }
 
 .case-transcript-section {
-  margin-top: 32px;
+  margin-top: var(--spacing-lg);
 }
 
 .case-transcript-section h2 {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+  color: var(--on-surface-muted);
+  margin-bottom: var(--spacing-sm);
 }
 
 .case-transcript-section .transcript {
   max-height: 500px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
 /* Intake brief */
 .intake-brief {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
 }
 
 .intake-header {
@@ -585,47 +585,46 @@ a {
 .intake-header h2 {
   font-size: 22px;
   font-weight: 700;
+  color: var(--on-surface);
 }
 
 .intake-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
+  gap: var(--spacing-sm);
   margin-bottom: 20px;
 }
 
 .intake-field label {
   display: block;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: var(--on-surface-muted);
   margin-bottom: 4px;
 }
 
 .intake-field span {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--on-surface);
 }
 
 .intake-section {
-  margin-top: 16px;
+  margin-top: var(--spacing-sm);
 }
 
 .intake-section label {
   display: block;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: var(--on-surface-muted);
   margin-bottom: 6px;
 }
 
 .intake-section p {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--on-surface);
   line-height: 1.5;
 }
 
@@ -636,9 +635,9 @@ a {
 
 .injury-list li {
   font-size: 14px;
-  color: var(--text-primary);
+  color: var(--on-surface);
   padding: 4px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .injury-list li:last-child {
