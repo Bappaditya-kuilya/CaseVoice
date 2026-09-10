@@ -53,6 +53,11 @@ a {
   outline-offset: 2px;
 }
 
+::selection {
+  background: rgba(86, 131, 218, 0.3);
+  color: var(--on-surface);
+}
+
 /* Nav */
 .nav {
   display: flex;
