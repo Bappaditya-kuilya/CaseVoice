@@ -71,6 +71,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 1px 0 rgba(86, 131, 218, 0.1);
 }
 
 .nav-logo {
