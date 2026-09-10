@@ -3,7 +3,7 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://casevoice-backend.fly.dev/api/$1" },
-    { "source": "/ws/(.*)", "destination": "wss://casevoice-backend.fly.dev/ws/$1" }
+    { "source": "/api/(.*)", "destination": "https://towards-sauce-degree-chemical.trycloudflare.com/api/$1" },
+    { "source": "/ws/(.*)", "destination": "wss://towards-sauce-degree-chemical.trycloudflare.com/ws/$1" }
   ]
 }
