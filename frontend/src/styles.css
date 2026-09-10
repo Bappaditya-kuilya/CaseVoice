@@ -205,13 +205,13 @@ a {
 .error-state,
 .empty-state {
   text-align: center;
-  padding: 48px 0;
-  color: var(--text-muted);
+  padding: var(--spacing-lg) 0;
+  color: var(--on-surface-muted);
   font-size: 14px;
 }
 
 .error-state {
-  color: var(--danger);
+  color: var(--error);
 }
 
 /* Dashboard */
@@ -219,30 +219,32 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-lg);
 }
 
 .dashboard-header h1 {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.56px;
+  color: var(--on-surface);
 }
 
 .dashboard-section {
-  margin-bottom: 32px;
+  margin-bottom: var(--spacing-lg);
 }
 
 .dashboard-section h2 {
   font-size: 16px;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+  color: var(--on-surface-muted);
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Card grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
+  gap: var(--spacing-sm);
 }
 
 .call-card {
