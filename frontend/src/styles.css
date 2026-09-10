@@ -612,6 +612,18 @@ a {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   padding: var(--spacing-md);
+  position: relative;
+}
+
+.intake-brief::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  border-radius: 1px;
 }
 
 .intake-header {
