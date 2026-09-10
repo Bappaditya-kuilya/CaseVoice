@@ -653,8 +653,8 @@ a {
 
   .live-call-controls {
     border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 16px;
+    border-bottom: 1px solid var(--border-strong);
+    padding: var(--spacing-sm);
   }
 
   .live-call-transcript {
@@ -685,10 +685,10 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-strong);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--on-surface-muted);
 }
