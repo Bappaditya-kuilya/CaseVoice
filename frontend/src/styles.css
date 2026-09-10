@@ -394,6 +394,18 @@ a {
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
+  position: relative;
+}
+
+.live-call-controls::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(125, 92, 255, 0.05) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .call-control-panel {
