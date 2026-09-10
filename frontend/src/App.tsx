@@ -12,7 +12,7 @@ export default function App() {
       {!hideNav && (
         <nav className="nav">
           <Link to="/" className="nav-logo">
-            ⚖ CaseVoice
+            CaseVoice
           </Link>
           <div className="nav-links">
             <Link
