@@ -107,13 +107,17 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
+  padding: 14px 20px;
   border: none;
-  border-radius: var(--radius);
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: var(--radius-pill);
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0px;
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  height: 40px;
+  width: 174px;
 }
 
 .btn:active {
@@ -121,45 +125,57 @@ a {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: white;
+  background: var(--surface);
+  color: var(--tertiary);
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
+  box-shadow: 0 0 20px rgba(125, 92, 255, 0.3);
 }
 
 .btn-warning {
-  background: #b45309;
-  color: white;
+  background: var(--accent-warm);
+  color: var(--on-surface);
 }
 
 .btn-warning:hover {
-  background: #d97706;
+  box-shadow: 0 0 20px rgba(255, 138, 61, 0.3);
 }
 
 .btn-danger {
-  background: var(--danger);
-  color: white;
+  background: var(--error);
+  color: var(--on-surface);
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  box-shadow: 0 0 20px rgba(232, 93, 93, 0.3);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--text-secondary);
-  padding: 8px 0;
+  color: var(--on-surface);
+  padding: 0;
+  width: auto;
+  height: auto;
 }
 
 .btn-ghost:hover {
-  color: var(--text-primary);
+  color: var(--primary);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--tertiary);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
 }
 
 .btn-large {
-  padding: 12px 32px;
-  font-size: 16px;
+  padding: 14px 32px;
+  font-size: 14px;
+  width: auto;
 }
 
 /* Badge */
