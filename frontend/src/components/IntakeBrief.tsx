@@ -7,8 +7,8 @@ interface IntakeBriefProps {
 const urgencyColors: Record<string, string> = {
   low: "#4ade80",
   medium: "#facc15",
-  high: "#f97316",
-  urgent: "#ef4444",
+  high: "#FF8A3D",
+  urgent: "#E85D5D",
 };
 
 export default function IntakeBrief({ data }: IntakeBriefProps) {
