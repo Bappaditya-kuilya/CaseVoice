@@ -14,7 +14,9 @@ export default function Transcript({ lines }: TranscriptProps) {
       <h3 className="transcript-title">Live Transcript</h3>
       <div className="transcript-body">
         {lines.length === 0 && (
-          <p className="transcript-empty">No messages yet. Start a call to begin.</p>
+          <p className="transcript-empty">
+            No messages yet. Start a call to begin.
+          </p>
         )}
         {lines.map((line, i) => (
           <div
