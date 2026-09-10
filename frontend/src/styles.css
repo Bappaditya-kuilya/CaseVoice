@@ -152,10 +152,12 @@ a {
 .btn-primary {
   background: var(--surface);
   color: var(--tertiary);
+  border: 1px solid var(--border-strong);
 }
 
 .btn-primary:hover {
   box-shadow: 0 0 20px rgba(125, 92, 255, 0.3);
+  border-color: var(--accent-glow);
 }
 
 .btn-warning {
