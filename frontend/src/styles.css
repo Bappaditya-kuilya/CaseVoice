@@ -36,6 +36,7 @@
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--surface);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(86, 131, 218, 0.03) 0%, transparent 60%);
   color: var(--on-surface);
   line-height: 1.5;
   min-height: 100vh;
