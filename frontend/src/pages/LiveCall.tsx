@@ -102,7 +102,7 @@ export default function LiveCall() {
             ) : (
               <>
                 <button
-                  className="btn btn-warning"
+                  className="btn btn-secondary"
                   onClick={sendInterrupt}
                 >
                   Interrupt
