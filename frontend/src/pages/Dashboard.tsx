@@ -27,7 +27,7 @@ export default function Dashboard() {
       <div className="dashboard-header">
         <h1>Dashboard</h1>
         <button className="btn btn-primary" onClick={() => navigate("/call")}>
-          + New Call
+          New Call
         </button>
       </div>
 
