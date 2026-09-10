@@ -501,35 +501,43 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .status-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--text-muted);
+  background: var(--on-surface-muted);
 }
 
 .status-listening {
   background: var(--success);
-  box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.6);
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .status-thinking {
   background: var(--warning);
-  box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+  animation: pulse-glow 1.5s ease-in-out infinite;
 }
 
 .status-speaking {
-  background: var(--info);
-  box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(86, 131, 218, 0.6);
+  animation: pulse-glow 1s ease-in-out infinite;
 }
 
 .status-label {
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--on-surface-muted);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }
 
 /* Case detail */
