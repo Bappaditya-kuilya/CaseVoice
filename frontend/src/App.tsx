@@ -24,6 +24,15 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
   }
 }
 
+function NotFound() {
+  return (
+    <div style={{ padding: 24, textAlign: "center" }}>
+      <h2>Page not found.</h2>
+      <Link to="/">Back to Dashboard</Link>
+    </div>
+  );
+}
+
 export default function App() {
   const location = useLocation();
   const hideNav = location.pathname === "/call";
@@ -55,7 +64,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/call" element={<LiveCall />} />
-          <Route path="/case/:id" element={<CaseDetail />} />
+            <Route path="/case/:id" element={<CaseDetail />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>
