@@ -154,7 +154,7 @@ class VoiceAgent:
                 await send_binary(chunk)
         except Exception as e:
             logger.error("TTS failed: %s", e)
-            await send_json({"type": "error", "message": f"TTS failed: {e}"})
+            await send_json({"type": "error", "message": "Text-to-speech failed. Please try again."})
         finally:
             self._speaking = False
             await send_json({"type": "done"})
