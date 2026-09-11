@@ -37,6 +37,12 @@ class VoiceAgent:
         if self._speaking:
             return
 
+        # Enforce buffer limit
+        if len(self._audio_buffer) + len(pcm_bytes) > _MAX_BUFFER_BYTES:
+            logger.warning("Audio buffer overflow for call %s, discarding", self.call_id)
+            self._audio_buffer.clear()
+            return
+
         # Check if frame has actual audio (non-zero samples)
         import array
         samples = array.array("h", pcm_bytes)
