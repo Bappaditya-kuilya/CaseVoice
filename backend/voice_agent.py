@@ -74,7 +74,7 @@ class VoiceAgent:
             transcript = await transcribe(audio)
         except Exception as e:
             logger.error("STT failed: %s", e)
-            await send_json({"type": "error", "message": f"STT failed: {e}"})
+            await send_json({"type": "error", "message": "Speech recognition failed. Please try again."})
             await self._set_state("listening", send_json)
             return
 
