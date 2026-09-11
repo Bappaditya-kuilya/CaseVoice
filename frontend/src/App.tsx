@@ -1,7 +1,28 @@
+import { Component, type ReactNode } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.tsx";
 import LiveCall from "./pages/LiveCall.tsx";
 import CaseDetail from "./pages/CaseDetail.tsx";
+
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 24, textAlign: "center" }}>
+          <h2>Something went wrong.</h2>
+          <Link to="/">Back to Dashboard</Link>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 export default function App() {
   const location = useLocation();
