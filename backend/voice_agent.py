@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import asyncio
 import json
-import struct
 import time
 from collections.abc import AsyncIterator
 
 import database as db
-from llm import chat_stream, chat_once
+from llm import chat_once
 from logger import get_logger
 from pronunciation import has_legal_citations, wrap_legal_citations
 from prompts import SYSTEM_PROMPT
