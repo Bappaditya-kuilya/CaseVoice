@@ -5,6 +5,7 @@ export interface VoiceCallbacks {
   onDone: () => void;
   onError: (message: string) => void;
   onAudio: (pcm: Int16Array) => void;
+  onReconnecting?: () => void;
 }
 
 export class VoiceClient {
@@ -74,6 +75,7 @@ export class VoiceClient {
 
     this.ws.onclose = () => {
       if (this.shouldReconnect) {
+        this.callbacks.onReconnecting?.();
         this.reconnectTimer = setTimeout(() => this.connect(), 2000);
       }
     };
