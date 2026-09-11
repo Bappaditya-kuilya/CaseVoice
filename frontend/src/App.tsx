@@ -17,9 +17,10 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
         <div style={{ padding: 24, textAlign: "center" }}>
           <h2>Something went wrong.</h2>
           <Link to="/">Back to Dashboard</Link>
-        </div>
-      );
-    }
+      </div>
+    </ErrorBoundary>
+  );
+}
     return this.props.children;
   }
 }
@@ -38,7 +39,8 @@ export default function App() {
   const hideNav = location.pathname === "/call";
 
   return (
-    <div className="app">
+    <ErrorBoundary>
+      <div className="app">
       {!hideNav && (
         <nav className="nav">
           <Link to="/" className="nav-logo">
