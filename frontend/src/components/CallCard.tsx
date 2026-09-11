@@ -11,7 +11,7 @@ function formatDate(iso: string): string {
 
 function formatDuration(start: string, end: string | null): string {
   const ms = (end ? new Date(end) : new Date()).getTime() - new Date(start).getTime();
-  const secs = Math.floor(ms / 1000);
+  const secs = Math.max(0, Math.floor(ms / 1000));
   const m = Math.floor(secs / 60);
   const s = secs % 60;
   return `${m}m ${s}s`;
