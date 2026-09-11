@@ -37,9 +37,18 @@ export default function Dashboard() {
           <p className="empty-state">No calls yet.</p>
         ) : (
           <div className="card-grid">
-            {calls.map((call) => (
-              <CallCard key={call.id} call={call} />
-            ))}
+            {calls.map((call) => {
+              const matchedCase = cases.find((c) => c.call_id === call.id);
+              return (
+                <CallCard
+                  key={call.id}
+                  call={call}
+                  onClick={() => {
+                    if (matchedCase) navigate(`/case/${matchedCase.id}`);
+                  }}
+                />
+              );
+            })}
           </div>
         )}
       </section>
