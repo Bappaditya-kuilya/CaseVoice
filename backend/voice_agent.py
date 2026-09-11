@@ -78,7 +78,7 @@ class VoiceAgent:
             await self._set_state("listening", send_json)
             return
 
-        if not transcript.strip():
+        if not transcript or not transcript.strip():
             await self._set_state("listening", send_json)
             return
 
