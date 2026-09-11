@@ -80,7 +80,8 @@ export class VoiceClient {
       }
     };
 
-    this.ws.onerror = () => {
+    this.ws.onerror = (event) => {
+      console.error("WebSocket error:", event);
       this.ws?.close();
     };
   }
