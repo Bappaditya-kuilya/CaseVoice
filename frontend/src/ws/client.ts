@@ -46,22 +46,28 @@ export class VoiceClient {
         return;
       }
 
-      const msg = JSON.parse(event.data);
+      let msg: Record<string, unknown>;
+      try {
+        msg = JSON.parse(event.data);
+      } catch {
+        console.error("Malformed WebSocket message:", event.data);
+        return;
+      }
       switch (msg.type) {
         case "status":
-          this.callbacks.onStatus(msg.state);
+          this.callbacks.onStatus(msg.state as "listening" | "thinking" | "speaking");
           break;
         case "transcript":
-          this.callbacks.onTranscript(msg.role, msg.text);
+          this.callbacks.onTranscript(msg.role as "user" | "agent", msg.text as string);
           break;
         case "tool_call":
-          this.callbacks.onToolCall(msg.tool, msg.result);
+          this.callbacks.onToolCall(msg.tool as string, msg.result as string);
           break;
         case "done":
           this.callbacks.onDone();
           break;
         case "error":
-          this.callbacks.onError(msg.message);
+          this.callbacks.onError(msg.message as string);
           break;
       }
     };
