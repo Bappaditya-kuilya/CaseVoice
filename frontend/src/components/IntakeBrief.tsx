@@ -12,9 +12,14 @@ const urgencyColors: Record<string, string> = {
 };
 
 export default function IntakeBrief({ data }: IntakeBriefProps) {
-  const injuries = typeof data.injuries === "string"
-    ? JSON.parse(data.injuries)
-    : data.injuries || [];
+  let injuries: string[] = [];
+  if (data.injuries) {
+    try {
+      injuries = typeof data.injuries === "string" ? JSON.parse(data.injuries) : data.injuries;
+    } catch {
+      injuries = [];
+    }
+  }
 
   return (
     <div className="intake-brief">
