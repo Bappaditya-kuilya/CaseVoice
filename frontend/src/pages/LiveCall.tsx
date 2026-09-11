@@ -18,6 +18,7 @@ export default function LiveCall() {
   const [agentState, setAgentState] = useState("listening");
   const [transcript, setTranscript] = useState<TranscriptLine[]>([]);
   const [error, setError] = useState("");
+  const [reconnecting, setReconnecting] = useState(false);
 
   const clientRef = useRef<VoiceClient | null>(null);
   const captureRef = useRef<AudioCapture | null>(null);
@@ -51,9 +52,11 @@ export default function LiveCall() {
       onDone: () => setAgentState("listening"),
       onError: (msg) => setError(msg),
       onAudio: (pcm) => playback.pushPCM(pcm),
+      onReconnecting: () => setReconnecting(true),
     });
     clientRef.current = client;
     client.start();
+    setReconnecting(false);
 
     const capture = new AudioCapture((pcm) => client.sendAudio(pcm));
     captureRef.current = capture;
