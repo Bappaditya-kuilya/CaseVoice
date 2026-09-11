@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
 import os
 
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, HTTPException, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 
 import database as db
@@ -60,7 +60,6 @@ async def list_cases():
 async def get_case(case_id: str):
     case = await db.get_case(case_id)
     if case is None:
-        from fastapi import HTTPException
         raise HTTPException(status_code=404, detail="Case not found")
     return case
 
