@@ -97,6 +97,12 @@ export default function LiveCall() {
 
           {error && <div className="call-error">{error}</div>}
 
+          {reconnecting && (
+            <div className="call-error" style={{ backgroundColor: "#facc15", color: "#000" }}>
+              Reconnecting...
+            </div>
+          )}
+
           <div className="call-buttons">
             {!active ? (
               <button className="btn btn-primary btn-large" onClick={startCall}>
