@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import time
+import uuid
 from collections.abc import AsyncIterator
 
 import database as db
@@ -103,13 +104,14 @@ class VoiceAgent:
             if result["type"] == "tool_call":
                 tool_name = result["tool"]
                 tool_args = result["arguments"]
+                call_id = f"call_{uuid.uuid4().hex[:12]}"
 
                 # Record tool call in messages
                 self.messages.append({
                     "role": "assistant",
                     "content": None,
                     "tool_calls": [{
-                        "id": f"call_{int(time.time()*1000)}",
+                        "id": call_id,
                         "type": "function",
                         "function": {"name": tool_name, "arguments": json.dumps(tool_args)},
                     }],
@@ -121,7 +123,7 @@ class VoiceAgent:
 
                 self.messages.append({
                     "role": "tool",
-                    "tool_call_id": f"call_{int(time.time()*1000)}",
+                    "tool_call_id": call_id,
                     "content": output,
                 })
                 continue
